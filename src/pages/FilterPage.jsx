@@ -25,16 +25,16 @@ backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
         <div className={classes.pageWrapper}>
             <Container maxWidth={false}>
                 <Grid  justifyContent={"center"} alignItems={"center"} container spacing={3}>
-                    <Grid item lg={3} xs={3}  >
+                    <Grid item lg={3} xs={12}  >
                         <ProductItem / >
                     </Grid>
-                    <Grid item lg={3} xs={3} >
+                    <Grid item lg={3} xs={12} >
                         <ProductItem / >
                     </Grid>
-                    <Grid item lg={3} xs={3} >
+                    <Grid item lg={3} xs={12} >
                         <ProductItem / >
                     </Grid>
-                    <Grid item lg={3} xs={3} >
+                    <Grid item lg={3} xs={12} >
                         <ProductItem / >
                     </Grid>
                     
