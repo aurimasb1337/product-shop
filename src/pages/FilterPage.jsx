@@ -15,7 +15,7 @@ export default function FilterPage() {
         pageWrapper : {
             minHeight: '105vh',
             width: '100%',
-backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+background: ' linear-gradient(180deg, rgba(85,11,175,1) 0%, rgba(0,0,0,1) 100%);'
 
         },
      

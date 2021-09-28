@@ -9,7 +9,7 @@ export default function ProductItem() {
      
         productItem : {
                 color: 'black',
-                borderRadius: 40,
+                borderRadius: 50,
                 // background: ' linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)',
                 backgroundColor: '#ffffff',
                 transition: 'all 0.6s ease-in',
@@ -19,7 +19,8 @@ export default function ProductItem() {
                 color: '#ffffff',
                 transform: 'scale(1)',
                 "&:hover " : {
-                    borderRadius: 50,
+                    borderRadius: 30,
+                    cursor: 'pointer'
                    },
                 '& p,h2' : {
                     margin: 0
