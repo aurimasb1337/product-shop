@@ -10,18 +10,13 @@ import { connect } from 'react-redux';
 import Pagination from '@material-ui/lab/Pagination';
  function FilterPage(props) {
     const [page, setPage] = useState(1);
-    console.log(props)
     const handleChange = (event, value) => {
       setPage(value);
     };
     useEffect(() => {
-        console.log(page)
         props.getProductsByPage(page)
       }, [page]);
     
-
-
-
     const useRowStyles = makeStyles({
         pageWrapper : {
             minHeight: '105vh',
@@ -44,7 +39,6 @@ background: ' linear-gradient(180deg, rgba(85,11,175,1) 0%, rgba(0,0,0,1) 100%);
     })
     const classes = useRowStyles()
     const productList  = props?.productReducer?.products.slice(0,15) || []
-    console.log(productList)
     return (
   
         <div className={classes.pageWrapper} >
@@ -75,6 +69,5 @@ const mapStateToProps = state => {
             getProductsByPage : page => dispatch(getProductsByPage(page))
         }
     }
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (FilterPage)
