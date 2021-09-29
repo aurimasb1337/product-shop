@@ -55,10 +55,20 @@
 .brand__name{
   color: rgb(58, 56, 56);
   letter-spacing: 1.2px;
-
+  transition: all .8s;
+  transform: scale(1);
+}
+.brand__name:hover{
+  transform: scale(1.09);
+  transform-origin: bottom;
+  transition: all .8s;
 }
 .product__heading{
   color: rgb(111, 1, 255);
+  overflow: hidden;
+  max-height: 70px;
+  transition: all .8s;
+  transform: scale(1);
 }
 .price__span{
   color: rgb(3, 3, 3);
@@ -68,16 +78,37 @@
   display: flex;
   margin-top: 15px;
   align-items: center;
+  transition: all .8s;
+  transform: scale(1);
+}
+.price__wrapper:hover{
+  transform: scale(1.05);
+  transition: all .8s;
 }
 .price__span{
   font-style: italic;
 }
+.product__heading:hover{
+  transform: scale(1.09);
+  transform-origin: left;
+  transition: all .8s;
+}
 .p-20{
   padding: 20px;
 }
-.purple__bg{
+.gray_bg{
   background: rgb(247, 245, 255);
+  transition: all .8s;
   /* background: linear-gradient(157deg, rgba(103,66,249,1) 0%, rgba(56,7,116,0.6867121848739496) 100%); */
+}
+.gray_bg:hover {
+  background: linear-gradient(157deg, rgba(103,66,249,1) 0%, rgba(56,7,116,0.6867121848739496) 100%);
+transition: all .2s;
+}
+.gray_bg:hover * {
+  transition: all .8s;
+  color: white !important; 
+  /* I'm sorry, it's 3AM in the morning. */
 }
 .rounded__corner{
   border-radius: 20px;

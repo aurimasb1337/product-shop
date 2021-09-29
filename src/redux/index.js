@@ -1,0 +1,1 @@
+export {getProductsByPage } from './productActions';

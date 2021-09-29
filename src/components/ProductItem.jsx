@@ -4,7 +4,8 @@ import {
     makeStyles,
 } from '@material-ui/core'
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
-export default function ProductItem() {
+export default function ProductItem({product}) {
+  
     const useRowStyles = makeStyles({
      
         productItem : {
@@ -20,8 +21,10 @@ export default function ProductItem() {
                 transform: 'scale(1)',
                 "&:hover " : {
                     borderRadius: 30,
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    transform: 'scale(1.05)'
                    },
+                   
                 '& p,h2' : {
                     margin: 0
                 },
@@ -32,26 +35,33 @@ export default function ProductItem() {
             borderRadius: 20,
             padding: 5,
             marginRight: 10,
-            boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;'
+            boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;',
+            
+            
         },
         imgWrapper: {
             height: '100%',
-            background: "url('http:\/\/images.booztx.com\/ben-sherman\/400x523\/benma108960_jetblack.jpg')",
-            backgroundSize: 'cover'
+            background: `url(${product.filename})`, // :P
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+           
         }
     })
+
     const classes = useRowStyles()
     return (
         <Card className={classes.productItem} spacing={3}>
-            <div className="flex__split d-flex flex-column justify-content-center purple__bg rounded__corner">
+          
+            <div className="flex__split d-flex flex-column justify-content-center gray_bg rounded__corner">
                 <div className="p-20">
-                <p className="brand__name">brand_name</p>
-            <h2 className="product__heading">product_name</h2>
+                <p className="brand__name">{product?.brand_name}</p>
+            <h2 className="product__heading">{product?.product_name}</h2>
             <div className="price__wrapper">
                 <LocalOfferIcon color={"primary"} className={classes.icon}/>
                 
                 <span className="price__span">
-                50.00$
+                    {parseFloat(product?.base_price).toFixed(2)}$
+           
                 </span>
             </div>
                 </div>
