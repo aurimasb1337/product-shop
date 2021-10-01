@@ -118,3 +118,15 @@ transition: all .2s;
 .round{
   border-radius: 40px;
 }
+@media (max-width: 768px) {
+  .rounded__corner{
+    border-radius: 20px;
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 40%;
+  }
+  .product__heading{
+    max-height: 100%;
+  }
+  
+  /* TODO: Refactor to utilize flexbox for equal item height distribution */
+}
