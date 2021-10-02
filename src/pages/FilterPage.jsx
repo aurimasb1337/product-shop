@@ -5,7 +5,7 @@ import {
     makeStyles,
 } from '@material-ui/core'
 import ProductItem from '../components/ProductItem'
-import { getProductsByPage } from './../redux';
+import { getProductsByPage, getPages } from './../redux';
 import { connect } from 'react-redux';
 import Pagination from '@material-ui/lab/Pagination';
  function FilterPage(props) {
@@ -17,6 +17,10 @@ import Pagination from '@material-ui/lab/Pagination';
         props.getProductsByPage(page)
       }, [page]);
     
+      useEffect(() => {
+        props.getPages()
+      }, []);
+
     const useRowStyles = makeStyles({
         pageWrapper : {
             minHeight: '105vh',
@@ -38,7 +42,8 @@ background: ' linear-gradient(180deg, rgba(85,11,175,1) 0%, rgba(0,0,0,1) 100%);
      }
     })
     const classes = useRowStyles()
-    const productList  = props?.productReducer?.products.slice(0,15) || []
+    const pageCount = parseInt(props?.productReducer?.pages) || 15
+    const productList  = props?.productReducer?.products?.slice(0,15) || []
     return (
   
         <div className={classes.pageWrapper} >
@@ -54,7 +59,7 @@ background: ' linear-gradient(180deg, rgba(85,11,175,1) 0%, rgba(0,0,0,1) 100%);
                   
                 </Grid>
             </Container>
-            <Pagination className={classes.pagination} count={10} color="primary" age={page} onChange={handleChange}/>
+            <Pagination className={classes.pagination} count={pageCount} color="primary" page={page} onChange={handleChange}/>
       </div>
       )
      
@@ -66,6 +71,7 @@ const mapStateToProps = state => {
  }
     const mapDispatchToProps = dispatch => {
         return {
+            getPages: () => dispatch(getPages()),
             getProductsByPage : page => dispatch(getProductsByPage(page))
         }
     }

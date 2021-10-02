@@ -4,3 +4,9 @@ export const getProductsByPage = (page) => {
         payload: page
     }
 }
+
+export const getPages = () => {
+    return {
+        type: "GET_PAGES",
+    }
+}
