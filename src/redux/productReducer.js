@@ -1,9 +1,10 @@
 const data = require('../data/product_list.json')
+const itemsPerPage=15
 const initialState = {
     products: data,
-    pages: 15
+    pages: itemsPerPage
 }
-const itemsPerPage=15
+
 const productReducer = (state = initialState, action) => {
      switch(action.type){
          case "GET_PRODUCTS": return {
@@ -12,7 +13,7 @@ const productReducer = (state = initialState, action) => {
          }
          case "GET_PAGES": return {
            ...state,
-            pages: data.length/15
+            pages: data.length/itemsPerPage
         }
          default: return state
      }
